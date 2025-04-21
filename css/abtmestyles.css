@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Papyrus';
+    src: url('PAPYRUS.ttf') format('truetype');
+
+}
+.container{display: inline-block;}
+
+.text {
+    overflow: hidden; /* Hide overflowing text */
+    white-space: pre-line; /* Preserve newline characters and wrap lines */
+    font-size: 18px; /* Set your desired font size */
+    border-right: 2px solid #000; /* Create a blinking cursor effect */
+     font-family: 'Papyrus';
+    /* Animation settings */
+    animation: typing 90s steps(2060) infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+      border-color: transparent; /* Invisible cursor */
+    }
+    50% {
+      border-color: #000; /* Visible cursor */
+    }
+  }
+
+
+
+.gallery {
+    font-size: 20px;
+    position: absolute;
+    font-family: Papyrus;
+    top: 0;
+    left: 0;
+    transform: translate(40px, 20px);
+    opacity: 1;
+    transition: opacity 0.3s;
+    
+  }
+  
+  .gallery a {
+    text-decoration: none;
+    color: #000000;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+  }
+  
+  .gallery:hover {
+    animation: flicker 2.5s 1;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes flicker {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }

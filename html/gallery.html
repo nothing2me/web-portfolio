@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/gallerystyles.css">
+</head>
+<body>
+
+        <div class="back">
+            <a href="index.html">back</a>
+        </div>
+        <div>
+          <a class="aboutme" href="aboutme.html">about me</a>
+        </div>
+      
+
+<!-- Header -->
+<div class="header" id="myHeader">
+  <h1>gallery</h1>
+  <p class="para">welcome</p>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column" id="gallery-container">
+    <!-- Images will be dynamically loaded here -->
+  </div>
+</div>
+
+<audio autoplay>
+  <source src="../media/imgs/sounds/part.mp3" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+// List of images in the gallery directory
+const galleryImages = [
+    '20230727_234928(0).jpg',
+    '20230727_234833.jpg',
+    '1cat.png',
+    'holytrini3.png',
+    '8am9pm.png',
+    'faithandloverhd.png',
+    'dctheory2.png',
+    'safehouse.png',
+    'oxy.jpg'
+];
+
+// Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Function to load images into the gallery
+function loadGallery() {
+    const container = document.getElementById('gallery-container');
+    container.innerHTML = ''; // Clear existing images
+    
+    // Shuffle the array and load images
+    const shuffledImages = shuffleArray([...galleryImages]);
+    
+    shuffledImages.forEach(imageName => {
+        const img = document.createElement('img');
+        img.src = `../media/imgs/gallery/${imageName}`;
+        img.style.width = '100%';
+        container.appendChild(img);
+    });
+}
+
+// Load the gallery when the page loads
+window.onload = loadGallery;
+
+// Get the elements with class="column"
+var elements = document.getElementsByClassName("column");
+
+// Declare a loop variable
+var i;
+
+// Full-width images
+function two() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "50%";  // IE10
+    elements[i].style.flex = "50%";
+  }
+}
+</script>
+
+</body>
+</html>
